@@ -17,8 +17,9 @@ var time;
 start.addEventListener('click',function(){
     wm.innerText = minIn.value;
     time= minIn.value;
-    console.log(minIn.value)
+   
     if(startTimer===undefined){
+       
         startTimer= setInterval(timer,1000)
         
     }else{
@@ -31,7 +32,7 @@ start.addEventListener('click',function(){
 reset.addEventListener('click',function(){
     ws.innerText="00"
     wm.innerText=time;
-    bm.innerText=5;
+    bm.innerText=1;
     bs.innerText="00";
     document.getElementById('counter')=0;
     stopInterval();
@@ -48,6 +49,8 @@ function stopInterval(){
 
 function timer(){
         //work timer count
+    console.log(wm.innerText , ws.innerText,bm.innerText, bs.innerText );
+
     if(ws.innerText!=0){ //inner text tengo la info
         ws.innerText--;
     }else if(wm.innerText!=0 && ws.innerText==0){
@@ -64,11 +67,14 @@ function timer(){
         }
     }
     //ciclo :)
+    // console.log(wm.innerText,bm.innerText, bs.innerText )
     if(wm.innerText==0 && ws.innerText ==0 && bm.innerText==0 && bs.innerText==0){
-        wm.innerText ==time;
-        ws.innerText =="00";
-        bm.innerText ==5;
-        bs.innerText =="00";
+        console.log("entro",wm.innerText)
+        wm.innerText =document.getElementById("min_in").value;
+        // wm.innerText =1;
+        ws.innerText ="00";
+        bm.innerText =5;
+        bs.innerText ="00";
         document.getElementById('counter').innerText++;
 
     }
